@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <img src="images/banner-2.png" alt="kuwaGO: study to grow your pixel garden" width="720">
+  <img src="images/banner-3.png" alt="kuwaGO: study to grow your pixel garden" width="720">
 </p>
 
 <p align="center">
