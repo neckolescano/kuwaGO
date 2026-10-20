@@ -20,15 +20,15 @@
 </p>
 
 <p align="center">
-  <img src="images/feature-graphic.png" alt="kuwaGO: study to grow your pixel garden" width="720">
+  <img src="images/banner.png" alt="kuwaGO: study to grow your pixel garden" width="720">
 </p>
 
 <p align="center">
-  <img src="images/screenshot-1.png" alt="Home: the cozy greenhouse with kuwago and the plant in the window" width="150">
-  <img src="images/screenshot-2.png" alt="Timer: a focus session in the Firefly Forest scene" width="150">
-  <img src="images/screenshot-3.png" alt="Flashcards made by AI from your notes" width="150">
-  <img src="images/screenshot-4.png" alt="Study Tools: a summary of your notes" width="150">
-  <img src="images/screenshot-5.png" alt="Garden Archive: harvested plants, stats and the next unlock" width="150">
+  <img src="images/screen-1.png" alt="Home: the cozy greenhouse with kuwago and the plant in the window" width="150">
+  <img src="images/screen-2.png" alt="Timer: a focus session in the Firefly Forest scene" width="150">
+  <img src="images/screen-3.png" alt="Flashcards made by AI from your notes" width="150">
+  <img src="images/screen-4.png" alt="Study Tools: a summary of your notes" width="150">
+  <img src="images/screen-5.png" alt="Garden Archive: harvested plants, stats and the next unlock" width="150">
 </p>
 
 > This repository is the **public showcase** of kuwaGO: what it does, how it
