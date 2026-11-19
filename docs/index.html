@@ -320,6 +320,33 @@
     .note { margin-top: 20px; font-size: .92rem; color: var(--muted); display: flex; gap: 10px; align-items: flex-start; }
     .note svg { width: 18px; height: 18px; flex: none; margin-top: 3px; color: var(--accent); }
 
+    /* ---------- Download: a seed packet + a growth path of install steps ---------- */
+    .download-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 64px; align-items: center; }
+    .packet { position: relative; max-width: 420px; margin: 0 auto; width: 100%; padding: 46px 30px 30px; background: var(--surface); border-radius: 6px 6px 22px 22px; box-shadow: var(--lift); text-align: center;
+      /* serrated top edge, like a torn-open seed packet */
+      -webkit-mask: linear-gradient(#000 0 0) 0 14px / 100% calc(100% - 14px) no-repeat, conic-gradient(from -45deg at 50% 100%, #000 90deg, #0000 0) 0 0 / 20px 14px repeat-x;
+      mask: linear-gradient(#000 0 0) 0 14px / 100% calc(100% - 14px) no-repeat, conic-gradient(from -45deg at 50% 100%, #000 90deg, #0000 0) 0 0 / 20px 14px repeat-x; }
+    .packet-label { border: 1.5px dashed var(--border); border-radius: 16px; padding: 26px 20px 24px; background: var(--bg); }
+    .packet .owl-sticker { width: 74px; margin: -4px auto 10px; }
+    .packet h3 { font: 600 2rem/1 var(--display); }
+    .packet h3 b { color: var(--accent); font-weight: 600; }
+    .edition-tag { display: inline-block; margin-top: 10px; padding: 5px 12px; border-radius: 999px; background: var(--surface-2); color: var(--accent); font: 800 .76rem var(--body); letter-spacing: .1em; text-transform: uppercase; }
+    .packet-contents { margin: 18px 0 22px; font-size: .95rem; color: var(--muted); line-height: 1.55; }
+    .packet .btn { width: 100%; padding: 16px 24px; font-size: 1.05rem; }
+    .packet-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 14px; margin-top: 14px; font-size: .84rem; color: var(--muted); font-weight: 600; }
+    .packet-meta span + span::before { content: "·"; margin-right: 14px; color: var(--border); }
+    .packet-foot { margin-top: 18px; font-size: .9rem; color: var(--muted); }
+    .path { list-style: none; margin: 0; padding: 0; position: relative; }
+    .path::before { content: ""; position: absolute; left: 31px; top: 40px; bottom: 40px; width: 4px; border-radius: 4px; background: linear-gradient(var(--green), var(--green-deep)); opacity: .55; }
+    .path li { position: relative; display: grid; grid-template-columns: 66px 1fr; gap: 20px; align-items: start; padding: 14px 0; }
+    .path .bud { width: 66px; height: 66px; border-radius: 50%; background: var(--surface); box-shadow: var(--lift-sm); display: grid; place-items: center; position: relative; z-index: 1; }
+    .path .bud img { width: 48px; }
+    .path h3 { font-size: 1.15rem; margin: 8px 0 4px; }
+    .path p { color: var(--muted); line-height: 1.6; }
+    .path .step-no { font: 700 .74rem var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .install-note { margin-top: 14px; padding: 16px 18px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); font-size: .92rem; color: var(--muted); display: flex; gap: 12px; }
+    .install-note svg { width: 20px; height: 20px; flex: none; color: var(--accent); margin-top: 2px; }
+
     /* ---------- Values ---------- */
     .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .value { padding: 26px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
@@ -423,7 +450,8 @@
     /* ---------- Responsive ---------- */
     @media (max-width: 980px) {
       .nav-links { display: none; }
-      .hero-grid, .why-grid, .feature, .faq-grid, .join-card, .plans, .gcash { grid-template-columns: 1fr; }
+      .hero-grid, .why-grid, .feature, .faq-grid, .join-card, .plans, .gcash, .download-grid { grid-template-columns: 1fr; }
+      .download-grid { gap: 40px; }
       .feature { gap: 32px; }
       .feature.flip .copy { order: 0; }
       .stage { max-width: 520px; width: 100%; margin: 0 auto; }
@@ -471,7 +499,8 @@
       <a href="#try">Try it</a>
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
-      <a href="#pass">Early access</a>
+      <a href="#download">Download</a>
+      <a href="#pass">Pass</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
@@ -479,7 +508,7 @@
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <a class="btn green" href="#pass">Get early access</a>
+      <a class="btn green" href="#download">Download free</a>
     </div>
   </div>
 </header>
@@ -490,17 +519,17 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="intro">
-        <div class="status" style="--i:0"><i></i>Android early access is open</div>
+        <div class="status" style="--i:0"><i></i>Free on Android · version <span data-apk-version>1.0.6</span></div>
         <h1 style="--i:1">Study to <span class="grow">grow</span> your pixel garden.</h1>
         <p class="lead" style="--i:2">kuwaGO is a cozy focus timer for students. Every session you finish grows a pixel plant. Give up halfway and it wilts. Your notes turn into quizzes and flashcards along the way.</p>
         <div class="cta-row" style="--i:3">
-          <a class="btn green" href="#pass">
+          <a class="btn green" href="#download">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-            Get early access · <span data-price>₱99</span>
+            Download free
           </a>
           <a class="btn light" href="#try">Try a session</a>
         </div>
-        <div class="fine" style="--i:4"><span>One-time payment</span><span>No subscription</span><span>No ads</span><span>Works offline</span></div>
+        <div class="fine" style="--i:4"><span>Free to start</span><span>No ads</span><span>Works offline</span><span>Unlock all for <span data-price>₱99</span></span></div>
       </div>
 
       <div class="stage" aria-label="kuwaGO running on a phone in a pixel meadow">
@@ -742,29 +771,79 @@
     </div>
   </section>
 
+  <!-- ===== Free download ===== -->
+  <section id="download" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Free download</div>
+        <h2>Plant kuwaGO on your phone <span class="hl">today.</span></h2>
+        <p class="lead">The free edition is the real app: timer, Deep Focus, garden, quizzes and flashcards. No account needed to start, no ads, ever.</p>
+      </div>
+
+      <div class="download-grid">
+        <div class="packet reveal">
+          <div class="packet-label">
+            <img class="owl-sticker px" src="assets/owl.png" alt="">
+            <h3>kuwa<b>GO</b></h3>
+            <span class="edition-tag">Free edition</span>
+            <p class="packet-contents">One study garden, five growth stages, Deep Focus, and <span data-free-ai>3</span> AI study tools a day.</p>
+            <a class="btn green" id="apkLink" href="https://github.com/neckolescano/kuwaGO/releases/latest/download/kuwaGO.apk" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+              Download for Android
+            </a>
+            <div class="packet-meta"><span>Version <span data-apk-version>1.0.6</span></span><span data-apk-size>58.6 MB</span><span>Android 7.0+</span></div>
+          </div>
+          <p class="packet-foot">Want everything unlocked? <a href="#pass">See the Founding Gardener pass</a></p>
+        </div>
+
+        <div class="reveal">
+          <ol class="path" aria-label="How to install">
+            <li>
+              <span class="bud"><img class="px" src="assets/stages/seed.png" alt=""></span>
+              <div><span class="step-no">Step 1</span><h3>Save the seed</h3><p>Tap download on your Android phone. The file is called <strong>kuwaGO.apk</strong>.</p></div>
+            </li>
+            <li>
+              <span class="bud"><img class="px" src="assets/stages/sprout.png" alt=""></span>
+              <div><span class="step-no">Step 2</span><h3>Let it sprout</h3><p>Open the file from your notifications or Downloads. Android asks once to allow installs from your browser. You can switch that off again afterwards.</p></div>
+            </li>
+            <li>
+              <span class="bud"><img class="px" src="assets/stages/bloom.png" alt=""></span>
+              <div><span class="step-no">Step 3</span><h3>Watch it grow</h3><p>Sign in with Google or email to keep your garden safe, then start your first focus session.</p></div>
+            </li>
+          </ol>
+          <p class="install-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+            <span>kuwaGO isn't on Google Play yet, which is why Android double-checks. Only download it from this page; every copy here is signed by kuwaGO's developer.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Founding Gardener pass ===== -->
   <section class="pass" id="pass">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow">Early access</div>
-        <h2>Get kuwaGO before it reaches <span class="hl">Google Play.</span></h2>
-        <p class="lead">kuwaGO isn't on the Play Store yet. Become a Founding Gardener with one GCash payment, install the app today, and help pay for its Google Play launch.</p>
+        <h2>Free to grow. One pass to <span class="hl">unlock it all.</span></h2>
+        <p class="lead">Start with the free edition. When you want the whole garden, the Founding Gardener pass unlocks everything with one GCash payment, and helps pay for kuwaGO's Google Play launch.</p>
       </div>
 
       <div class="plans">
         <div class="plan reveal">
           <div>
-            <h3>Google Play release</h3>
-            <p class="tagline">For everyone, once kuwaGO is published.</p>
+            <h3>Free edition</h3>
+            <p class="tagline">Everything you need to study.</p>
           </div>
-          <div class="price"><strong>Free</strong><span>coming later</span></div>
+          <div class="price"><strong>₱0</strong><span>download now</span></div>
           <ul class="points">
             <li>Focus timer and Deep Focus</li>
-            <li>Plants, garden and badges</li>
-            <li>AI quizzes, flashcards and summaries</li>
+            <li>5 plants to grow, plus a secret one</li>
+            <li><span data-free-ai>3</span> AI study tools a day, then offline versions</li>
+            <li>Starter garden scenes and card designs</li>
             <li>Sync across devices</li>
           </ul>
-          <span class="btn light" aria-disabled="true">Not available yet</span>
+          <a class="btn light" href="#download">Download free</a>
         </div>
 
         <div class="plan featured reveal">
@@ -773,16 +852,17 @@
             <img class="px" src="assets/owl.png" alt="">
             <div>
               <h3>Founding Gardener pass</h3>
-              <p class="tagline">Get in early and help kuwaGO launch.</p>
+              <p class="tagline">The whole garden, for good.</p>
             </div>
           </div>
           <div class="price"><strong data-price>₱99</strong><span>one-time · no subscription</span></div>
           <ul class="points">
-            <li>Install the full Android app today</li>
-            <li>Get every new version before anyone else</li>
-            <li>Your name on the Founding Gardeners list on this site (optional)</li>
-            <li><span>A Founding Gardener badge in the app <span class="soon-tag">coming in an update</span></span></li>
-            <li>Directly funds the Google Play launch</li>
+            <li>Unlimited AI quizzes, flashcards and summaries</li>
+            <li>All 13 plants, up to the Eternal Sakura</li>
+            <li>Every garden scene and Player Card design</li>
+            <li>New versions before anyone else</li>
+            <li>Founding Gardener status on your profile</li>
+            <li>Helps fund the Google Play launch</li>
           </ul>
           <a class="btn green" href="#gcash">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
@@ -794,19 +874,19 @@
       <div class="gcash reveal" id="gcash">
         <div>
           <h3>How to get your pass</h3>
-          <p>No account needed. It takes about two minutes.</p>
+          <p>Install the free edition and sign in first. Then it takes about two minutes.</p>
           <ol class="pay-steps">
             <li><div><strong>Send <span data-price>₱99</span> with GCash</strong><span>Scan the QR code or send to the GCash number shown.</span></div></li>
-            <li><div><strong>Email your receipt</strong><span>Send a screenshot of your GCash receipt and the Google email you use on your Android phone.</span>
+            <li><div><strong>Email your receipt</strong><span>Send a screenshot of your GCash receipt and the email you sign in to kuwaGO with.</span>
               <a class="btn gold" id="receiptBtn" href="mailto:neckolescano36@gmail.com">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
                 Email my receipt
               </a></div></li>
-            <li><div><strong>Install from your invite</strong><span>Within a day you'll get an email from Firebase App Distribution. Open it on your Android phone, install kuwaGO, and plant your first seed.</span></div></li>
+            <li><div><strong>Your garden unlocks</strong><span>Within a day your account is upgraded. In kuwaGO, open Profile → Free edition → <em>I already paid</em>, and everything blooms.</span></div></li>
           </ol>
           <p class="note">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
-            If kuwaGO won't install on your phone and we can't fix it, you get a full refund.
+            The pass belongs to your account, so it moves with you to a new phone. If it doesn't unlock and we can't fix it, you get a full refund.
           </p>
         </div>
         <div class="qr" aria-label="GCash payment details">
@@ -831,19 +911,23 @@
       <div class="reveal">
         <details>
           <summary>Is this a subscription?</summary>
-          <p>No. The Founding Gardener pass is a single <span data-price>₱99</span> payment. Nothing renews and there's nothing to cancel.</p>
+          <p>No. kuwaGO is free to download, and the Founding Gardener pass is a single <span data-price>₱99</span> payment. Nothing renews and there's nothing to cancel.</p>
         </details>
         <details>
-          <summary>Why pay now if it will be free on Google Play?</summary>
-          <p>Publishing on Google Play costs money, and kuwaGO is made by one student. Founding Gardeners get the app months early, get every update first, keep their perks, and make the Play Store launch possible.</p>
+          <summary>What's free, and what does the pass add?</summary>
+          <p>The free edition has the focus timer, Deep Focus, the garden, 5 plants (plus a secret one) and <span data-free-ai>3</span> AI study tools a day, with offline versions after that. The pass unlocks unlimited AI, all 13 plants, every garden scene and card design, and early updates.</p>
         </details>
         <details>
-          <summary>How long until I can install it?</summary>
-          <p>Usually within a day after you email your receipt. The install invite comes from Firebase App Distribution, Google's tool for sharing apps with testers.</p>
+          <summary>Is the download safe?</summary>
+          <p>Yes. It's the same app the testers use, signed by kuwaGO's developer. Android warns about any app from outside Google Play, so only download kuwaGO from this page.</p>
         </details>
         <details>
-          <summary>What if it doesn't work on my phone?</summary>
-          <p>Message us. If we can't get kuwaGO running on your phone, you get a full refund to your GCash.</p>
+          <summary>How long does the pass take to unlock?</summary>
+          <p>Usually within a day after you email your receipt. Then open Profile in the app and tap <em>I already paid</em>. If it doesn't unlock and we can't fix it, you get a full refund to your GCash.</p>
+        </details>
+        <details>
+          <summary>Will I lose my garden when kuwaGO reaches Google Play?</summary>
+          <p>No. Your garden and your pass are saved to your account, so they come with you when you switch to the Google Play version.</p>
         </details>
         <details>
           <summary>Is there an iPhone version?</summary>
@@ -851,7 +935,7 @@
         </details>
         <details>
           <summary>What happens to my notes and payment details?</summary>
-          <p>Your notes are only sent to an AI service when you tap a study tool. Your GCash receipt is only used to confirm your payment and send your invite. Read the <a href="privacy.html">privacy policy</a> for details.</p>
+          <p>Your notes are only sent to an AI service when you tap a study tool. Your GCash receipt is only used to confirm your payment and unlock your account. Read the <a href="privacy.html">privacy policy</a> for details.</p>
         </details>
         <details>
           <summary>Who makes kuwaGO?</summary>
@@ -867,8 +951,8 @@
       <div class="join-card reveal">
         <div>
           <h2>Your garden is waiting.</h2>
-          <p>Get the Founding Gardener pass, install kuwaGO today, and help it grow all the way to Google Play.</p>
-          <a class="btn gold" href="#pass">Get the pass · <span data-price>₱99</span></a>
+          <p>Download kuwaGO free, plant your first seed, and unlock the whole garden whenever you're ready.</p>
+          <a class="btn gold" href="#download">Download free</a>
           <div class="soon">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.5v17c0 .4.4.6.7.4L19 12.4c.3-.2.3-.6 0-.8L4.7 3.1c-.3-.2-.7 0-.7.4z"/></svg>
             Coming later to Google Play
@@ -876,9 +960,9 @@
         </div>
         <div class="mini-steps">
           <ol>
-            <li>Pay with GCash</li>
-            <li>Email your receipt</li>
-            <li>Install and grow</li>
+            <li>Download free</li>
+            <li>Sign in and grow</li>
+            <li>Unlock all for <span data-price>₱99</span></li>
           </ol>
         </div>
       </div>
@@ -899,6 +983,7 @@
           <li><a href="#try">Try a session</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#plants">Plants</a></li>
+          <li><a href="#download">Download free</a></li>
           <li><a href="#pass">Founding Gardener pass</a></li>
         </ul>
       </div>
@@ -930,8 +1015,18 @@
     price: '₱99',
     gcashNumber: '',          // e.g. '0917 123 4567'
     gcashName: 'NI**O L.',    // as GCash shows it, so buyers can confirm before paying
-    email: 'neckolescano36@gmail.com'
+    email: 'neckolescano36@gmail.com',
+
+    // Free download (update these when you publish a new APK)
+    apkUrl: 'https://github.com/neckolescano/kuwaGO/releases/latest/download/kuwaGO.apk',
+    apkVersion: '1.0.6',
+    apkSize: '58.6 MB',
+    freeAiPerDay: 3            // keep in sync with Edition.freeAiPerDay in the app
   };
+  document.querySelectorAll('[data-free-ai]').forEach(el => { el.textContent = PASS.freeAiPerDay; });
+  document.querySelectorAll('[data-apk-version]').forEach(el => { el.textContent = PASS.apkVersion; });
+  document.querySelectorAll('[data-apk-size]').forEach(el => { el.textContent = PASS.apkSize; });
+  document.getElementById('apkLink').href = PASS.apkUrl;
 
   document.documentElement.classList.add('js');
 
@@ -942,7 +1037,7 @@
   const qrImg = document.getElementById('qrImg');
   const showQr = () => { qrImg.hidden = false; document.getElementById('qrMissing').hidden = true; };
   if (qrImg.complete && qrImg.naturalWidth) showQr(); else qrImg.addEventListener('load', showQr);
-  const body = `Hi! I paid ${PASS.price} for the kuwaGO Founding Gardener pass.\n\nGCash reference number:\nGoogle email on my Android phone:\nName for the Founding Gardeners list (optional):\n\n(My GCash receipt screenshot is attached.)`;
+  const body = `Hi! I paid ${PASS.price} for the kuwaGO Founding Gardener pass.\n\nGCash reference number:\nEmail I sign in to kuwaGO with:\n\n(My GCash receipt screenshot is attached.)`;
   document.getElementById('receiptBtn').href = `mailto:${PASS.email}?subject=${encodeURIComponent('kuwaGO Founding Gardener pass')}&body=${encodeURIComponent(body)}`;
 
   // ---------- Light / dark toggle (remembered on this device) ----------
